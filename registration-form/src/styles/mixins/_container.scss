@@ -1,0 +1,27 @@
+@mixin module-space {
+  margin-top: 80px;
+
+  @include mobile {
+    margin-top: 16px;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 600px + 2 * 145px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 145px;
+  padding-left: 145px;
+
+  @include tablet {
+    padding-right: 84px;
+    padding-left: 84px;
+  }
+
+  @include mobile {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+

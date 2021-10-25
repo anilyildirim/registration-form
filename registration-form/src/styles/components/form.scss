@@ -1,0 +1,14 @@
+.registration-form {
+  i {
+    width: 18px;
+    margin-right: 5px;
+    
+    &.fa-check {
+      color: var(--c-green);
+    }
+
+    &.fa-times {
+      color: var(--c-red);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+button {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  color: var(--c-white);
+  border: none;
+  background-color: var(--c-black);
+  padding: 15px 70px;
+  transition: all 200ms ease-in-out;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  border: 2px solid transparent;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--c-white);
+    color: var(--c-black);
+    border: 2px solid var(--c-black);
+  }
+}

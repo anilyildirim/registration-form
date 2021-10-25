@@ -1,0 +1,8 @@
+h1 {
+  @include h1;
+}
+
+.continuous-text {
+  @include continuous-text;
+}
+
