@@ -15,7 +15,7 @@ const Form = () => {
 
   const [passwordValidity, setPasswordValidity] = useState(false);
 
-  const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  const regex = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
 
   function validatePassword(password) {
     // Check if the password has uppercase letter
@@ -44,6 +44,7 @@ const Form = () => {
     setUsername(username);
     validatePassword(password);
     passwordValidity && setPassword(password);
+    console.log('Entered valid password :>> ', password);
   }
 
   return (
