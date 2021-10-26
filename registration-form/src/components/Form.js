@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../base/Button';
+import ValidationStep from '../base/ValidationStep';
 
 const Form = () => {
 
@@ -18,45 +19,20 @@ const Form = () => {
 
   function validatePassword(password) {
     // Check if the password has uppercase letter
-    if (password.toLowerCase() !== password) { 
-      setUppercaseValidity(true) 
-    } else {
-      setUppercaseValidity(false);
-      console.log('uppercase error');
-    }
-  
+    (password.toLowerCase() !== password) ? setUppercaseValidity(true) :
+    setUppercaseValidity(false);
 
-  // Check if the password has lowercase letter
-    if (password.toUpperCase() !== password) {
-      setLowercaseValidity(true)
-    } else {
-      setLowercaseValidity(false);
-      console.log('lowercase error');
-    }
+    // Check if the password has lowercase letter
+    (password.toUpperCase() !== password) ? setLowercaseValidity(true) : setLowercaseValidity(false);
 
     // Check if the password has a number
-    if (/\d/.test(password)) {
-      setNumberValidity(true)
-    } else {
-      setNumberValidity(false);
-      console.log('number error');
-    }
+    (/\d/.test(password)) ? setNumberValidity(true) : setNumberValidity(false);
 
     // Check if the password has a special character
-    if (regex.test(password)) {
-      setSpecialCharValidity(true)
-    } else {
-      setSpecialCharValidity(false);
-      console.log('special char error');
-    }
+    (regex.test(password)) ? setSpecialCharValidity(true) : setSpecialCharValidity(false);
 
     // Check if the password has at least 8 characters
-    if (password.length >= 8) {
-      setCharNumValidity(true);
-    } else {
-      setCharNumValidity(false);
-      console.log('number of chars error');
-    }
+    (password.length >= 8) ? setCharNumValidity(true) : setCharNumValidity(false);
 
     // Check if all validations passed
     (uppercaseValidity && lowercaseValidity && charNumValidity && numberValidity && specialCharValidity ) ? setPasswordValidity(true)
@@ -68,6 +44,7 @@ const Form = () => {
     setUsername(username);
     setPassword(password);
     validatePassword(password);
+    console.log('password :>> ', password);
   }
 
   return (
@@ -86,27 +63,18 @@ const Form = () => {
         id="password" 
         name="password"
         onChange={(e) => setPassword(e.target.value)}
+        onKeyUp={(e) => validatePassword(e.target.value)}
       />
 
       <ul>
-        <li>
-          <p>{charNumValidity ? (<i class="fas fa-check"></i>) : (<i class="fas fa-times"></i>)} <span>8+ characters</span> </p>
-        </li>
-        <li>
-          <p>{lowercaseValidity ? (<i class="fas fa-check"></i>) : (<i class="fas fa-times"></i>)} <span>lowercase letter</span>   </p>
-        </li>
-        <li>
-          <p>{uppercaseValidity ? (<i class="fas fa-check"></i>) : (<i class="fas fa-times"></i>)} <span>uppercase letter</span></p>
-        </li>
-        <li>
-          <p>{numberValidity ? (<i class="fas fa-check"></i>) : (<i class="fas fa-times"></i>)} <span>number</span> </p>
-        </li>
-        <li>
-          <p>{specialCharValidity ? (<i class="fas fa-check"></i>) : (<i class="fas fa-times"></i>)}<span>special character</span> </p>
-        </li>
+        <ValidationStep validity={charNumValidity} validationName="8+ characters"/>
+        <ValidationStep validity={lowercaseValidity} validationName="lowercase letter"/>
+        <ValidationStep validity={uppercaseValidity} validationName="uppercase letter"/>
+        <ValidationStep validity={numberValidity} validationName="number"/>
+        <ValidationStep validity={specialCharValidity} validationName="special character"/>
       </ul> 
 
-      <Button buttonType={'submit'} disabled={!passwordValidity} />
+      <Button buttonType={'submit'} validity={passwordValidity} />
     </form>
   );
 };
