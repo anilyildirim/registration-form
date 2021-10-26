@@ -1,4 +1,7 @@
 .registration-form {
+  @include container;
+  @include module-space;
+
   i {
     width: 18px;
     margin-right: 5px;
@@ -10,5 +13,9 @@
     &.fa-times {
       color: var(--c-red);
     }
+  }
+
+  ul {
+    @include reset-list;
   }
 }

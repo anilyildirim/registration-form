@@ -1,0 +1,10 @@
+.header {
+  text-align: center;
+  background: var(--c-black);
+
+  h1 {
+    @include container;
+
+    color: var(--c-white);
+  }
+}
