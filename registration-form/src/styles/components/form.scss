@@ -1,6 +1,14 @@
-.registration-form {
+.registration-form__wrapper {
   @include container;
   @include module-space;
+
+  .registration-form {
+    border: 2px solid var(--c-black);
+    padding: 32px 16px;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
 
   i {
     width: 18px;

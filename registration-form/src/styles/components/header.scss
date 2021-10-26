@@ -1,6 +1,7 @@
 .header {
   text-align: center;
   background: var(--c-black);
+  padding: 16px;
 
   h1 {
     @include container;

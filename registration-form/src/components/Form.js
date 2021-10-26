@@ -48,34 +48,40 @@ const Form = () => {
   }
 
   return (
-    <form id="login-form" name="form" className="registration-form" onSubmit={(e) => handleSubmit(e)}>
-      <label htmlFor="email">Email:</label>
-      <input 
-        type="email" 
-        id="email" 
-        name="email" 
-        required
-        onChange={(e) => setUsername(e.target.value)}  
-      />
-      <label htmlFor="password">Password:</label>
-      <input 
-        type="password" 
-        id="password" 
-        name="password"
-        onChange={(e) => setPassword(e.target.value)}
-        onKeyUp={(e) => validatePassword(e.target.value)}
-      />
+    <div className="registration-form__wrapper">
+      <form id="login-form" name="form" className="registration-form" onSubmit={(e) => handleSubmit(e)}>
+        <div className="registration-form__column">
+          <label htmlFor="email">Email:</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            onChange={(e) => setUsername(e.target.value)}  
+          />
+        </div>
+        <div className="registration-form__column">
+          <label htmlFor="password">Password:</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyUp={(e) => validatePassword(e.target.value)}
+          />
 
-      <ul>
-        <ValidationStep validity={charNumValidity} validationName="8+ characters"/>
-        <ValidationStep validity={lowercaseValidity} validationName="lowercase letter"/>
-        <ValidationStep validity={uppercaseValidity} validationName="uppercase letter"/>
-        <ValidationStep validity={numberValidity} validationName="number"/>
-        <ValidationStep validity={specialCharValidity} validationName="special character"/>
-      </ul> 
+          <ul>
+            <ValidationStep validity={charNumValidity} validationName="8+ characters"/>
+            <ValidationStep validity={lowercaseValidity} validationName="lowercase letter"/>
+            <ValidationStep validity={uppercaseValidity} validationName="uppercase letter"/>
+            <ValidationStep validity={numberValidity} validationName="number"/>
+            <ValidationStep validity={specialCharValidity} validationName="special character"/>
+          </ul> 
 
-      <Button buttonType={'submit'} validity={passwordValidity} />
-    </form>
+          <Button buttonType={'submit'} validity={passwordValidity} />
+        </div>
+      </form>
+    </div>
   );
 };
 
