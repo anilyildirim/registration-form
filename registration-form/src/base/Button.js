@@ -7,7 +7,7 @@ const Button = ({ buttonType, validity }) => {
   };
 
   return (
-    <button className="button" onClick={handleClick} type={ buttonType } disabled={!validity}>
+    <button className="button" onClick={handleClick} type={ buttonType } disabled={!validity} aria-disabled={!validity}>
       Submit
     </button>
   );

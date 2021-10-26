@@ -16,11 +16,3 @@
   }
 }
 
-@mixin continuous-text {
-  @include font($f-weight-regular, 18, 21);
-
-  @include mobile {
-    font-size: pxtorem(18);
-    line-height: pxtorem(21);
-  }
-}
