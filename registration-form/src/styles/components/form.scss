@@ -1,18 +1,103 @@
-.registration-form__wrapper {
+.registration-form {
   @include container;
-  @include module-space;
+  
+  margin-top: calc(50vh - 60px);
+  transform: translateY(-50%);
 
-  .registration-form {
+  @include mobile {
+    margin-top: 16px;
+    transform: translateY(0);
+  }
+
+  &__inner {
     border: 2px solid var(--c-black);
     padding: 32px 16px;
+  }
+
+  ul {
+    @include reset-list;
+  }
+
+  &__row--inputs {
     display: flex;
-    gap: 16px;
     justify-content: space-between;
+    gap: 16px;
+
+    @include tablet {
+      flex-flow: row-reverse;
+    }
+
+    @include mobile {
+      display: block;
+    }
+
+    li {
+      flex: 0 0 calc(50% - 8px);
+
+      @include mobile {
+        &:first-of-type {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  input[type='email'],
+  input[type='password'] {
+    border: 2px solid var(--c-black);
+    padding: 14px 16px;
+    width: 100%;
+    transition: background-color 150ms ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--c-light-blue);
+    }
+  }
+
+  &__row--validation {
+    width: calc(50% - 8px);
+    margin-left: auto;
+    margin-right: 0;
+
+    @include tablet {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  ul.registration-form__validators-list {
+    margin-top: 13px;
+    margin-bottom: 32px;
+
+    @include tablet {
+      flex: 0 0 calc(50% - 8px);
+      margin-bottom: -5px;
+    }
+
+    @include mobile {
+      margin-bottom: 32px;
+    }
+    
+    li {
+      padding: 2px 0;
+    }
   }
 
   i {
     width: 18px;
-    margin-right: 5px;
+    margin-right: 2px;
     
     &.fa-check {
       color: var(--c-green);
@@ -23,7 +108,9 @@
     }
   }
 
-  ul {
-    @include reset-list;
+  .button {
+    @include tablet {
+      flex: 0 0 calc(50% - 8px);
+    }
   }
 }

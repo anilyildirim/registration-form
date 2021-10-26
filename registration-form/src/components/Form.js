@@ -42,35 +42,37 @@ const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
     setUsername(username);
-    setPassword(password);
     validatePassword(password);
-    console.log('password :>> ', password);
+    passwordValidity && setPassword(password);
   }
 
   return (
-    <div className="registration-form__wrapper">
-      <form id="login-form" name="form" className="registration-form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="registration-form__column">
-          <label htmlFor="email">Email:</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required
-            onChange={(e) => setUsername(e.target.value)}  
-          />
-        </div>
-        <div className="registration-form__column">
-          <label htmlFor="password">Password:</label>
-          <input 
-            type="password" 
-            id="password" 
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyUp={(e) => validatePassword(e.target.value)}
-          />
-
-          <ul>
+    <div className="registration-form">
+      <form id="login-form" name="form" className="registration-form__inner" onSubmit={(e) => handleSubmit(e)}>
+        <ul className="registration-form__row registration-form__row--inputs">
+          <li>
+            <label htmlFor="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              onChange={(e) => setUsername(e.target.value)}  
+            />
+          </li>
+          <li>
+            <label htmlFor="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyUp={(e) => validatePassword(e.target.value)}
+            />
+          </li>
+        </ul>
+        <div className="registration-form__row registration-form__row--validation">
+          <ul className="registration-form__validators-list">
             <ValidationStep validity={charNumValidity} validationName="8+ characters"/>
             <ValidationStep validity={lowercaseValidity} validationName="lowercase letter"/>
             <ValidationStep validity={uppercaseValidity} validationName="uppercase letter"/>
