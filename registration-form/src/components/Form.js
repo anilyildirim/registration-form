@@ -44,7 +44,6 @@ const Form = () => {
     setUsername(username);
     validatePassword(password);
     passwordValidity && setPassword(password);
-    console.log('Entered valid password :>> ', password);
   }
 
   return (
@@ -74,14 +73,14 @@ const Form = () => {
         </ul>
         <div className="registration-form__row registration-form__row--validation">
           <ul className="registration-form__validators-list">
-            <ValidationStep validity={charNumValidity} validationName="8+ characters"/>
-            <ValidationStep validity={lowercaseValidity} validationName="lowercase letter"/>
-            <ValidationStep validity={uppercaseValidity} validationName="uppercase letter"/>
-            <ValidationStep validity={numberValidity} validationName="number"/>
-            <ValidationStep validity={specialCharValidity} validationName="special character"/>
+            <ValidationStep validity={ charNumValidity } validationName="8+ characters"/>
+            <ValidationStep validity={ lowercaseValidity } validationName="lowercase letter"/>
+            <ValidationStep validity={ uppercaseValidity } validationName="uppercase letter"/>
+            <ValidationStep validity={ numberValidity } validationName="number"/>
+            <ValidationStep validity={ specialCharValidity } validationName="special character"/>
           </ul> 
 
-          <Button buttonType={'submit'} validity={passwordValidity} />
+          <Button buttonType={'submit'} validity={ passwordValidity } buttonText={'Submit'} />
         </div>
       </form>
     </div>

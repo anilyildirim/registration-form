@@ -4,7 +4,7 @@ const Header = ({ titleText }) => {
 
   return (
     <header className="header">
-      <h1>{titleText}</h1>
+      <h1>{ titleText }</h1>
     </header>
   );
 };

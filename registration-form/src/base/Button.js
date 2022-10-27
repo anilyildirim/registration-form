@@ -1,14 +1,9 @@
 import React from 'react';
 
-const Button = ({ buttonType, validity }) => {
-
-  const handleClick = () => {
-    
-  };
-
+const Button = ({ buttonType, validity, buttonText }) => {
   return (
-    <button className="button" onClick={handleClick} type={ buttonType } disabled={!validity} aria-disabled={!validity}>
-      Submit
+    <button className="button" type={ buttonType } disabled={ !validity } aria-disabled={ !validity }>
+      { buttonText }
     </button>
   );
 };
